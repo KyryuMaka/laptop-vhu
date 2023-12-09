@@ -1,13 +1,13 @@
-import Header from "../admin/components/Header";
-import SideBar from "../admin/components/SideBar";
+import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 
-import ProductTable from "../admin/components/ProductTable";
-import CategoriesTable from "../admin/components/CategoriesTable";
-import ManufacturersTable from "../admin/components/ManufacturersTable";
-import ModelsTable from "../admin/components/ModelsTable";
+import ProductTable from "./components/ProductTable";
+import CategoriesTable from "./components/CategoriesTable";
+import ManufacturersTable from "./components/ManufacturersTable";
+import ModelsTable from "./components/ModelsTable";
 
-import UsersTable from "../admin/components/UsersTable";
-import PermissionTable from "../admin/components/PermissionTable";
+import UsersTable from "./components/UsersTable";
+import PermissionTable from "./components/PermissionTable";
 
 function Admin(props){
     var route = props.match.params.route;

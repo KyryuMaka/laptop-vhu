@@ -2,9 +2,9 @@ import {Route, BrowserRouter} from 'react-router-dom';
 
 import './App.css';
 
-import Home from './pages/Home';
-import Authenticate from './pages/Authenticate';
-import Admin from './pages/Admin';
+import Home from './client/Home';
+import Authenticate from './admin/Authenticate';
+import Admin from './admin/Admin';
 
 function App() {
   var isAuthenticated = sessionStorage.getItem("isAuthenticated")

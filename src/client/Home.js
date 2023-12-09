@@ -1,7 +1,7 @@
-import Navbar from '../client/components/Navbar.js';
-import Carousel from '../client/components/Carousel';
-import ProductCard from '../client/components/ProductCard';
-import Footer from '../client/components/Footer';
+import Navbar from './components/Navbar.js';
+import Carousel from './components/Carousel.js';
+import ProductCard from './components/ProductCard.js';
+import Footer from './components/Footer.js';
 
 import img1 from "../images/img.webp";
 
