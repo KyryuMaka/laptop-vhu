@@ -12,8 +12,20 @@ var data =[{
 
 function UsersTable(){
 
+    function toogleModal(){
+        document.getElementById("modal").classList.toggle("invisible");
+    }
+
     function handleAdd(e){
-        fetch("https://ap-southeast-1.aws.data.mongodb-api.com/app/laptopvhu-pxytp/endpoint/addProduct?secret=nwXnJh1R8kvGWkoM")
+        e.preventDefault();
+        var [displayName, fullName, email] = e.target;
+        var user = {
+            displayName: displayName.value,
+            fullName: fullName.value,
+            email: email.value,
+        }
+        console.log(user);
+        // fetch("https://ap-southeast-1.aws.data.mongodb-api.com/app/laptopvhu-pxytp/endpoint/addProduct?secret=nwXnJh1R8kvGWkoM")
     }
 
     function handleDelete(e){
@@ -51,7 +63,7 @@ function UsersTable(){
                 </div>
                 <button 
                     type="button"
-                    onClick={handleAdd}
+                    onClick={toogleModal}
                     className="mb-2 ml-2 py-2 px-5 rounded-lg
                         text-white 
                         bg-blue-800 hover:bg-blue-500">
@@ -148,6 +160,130 @@ function UsersTable(){
                         })}
                     </tbody>
                 </table>
+            </div>
+            <div 
+                id="modal"
+                className="bg-blue-500/10 
+                    fixed top-0 right-0 left-0 z-10 
+                    flex justify-center items-center 
+                    min-w-screen min-h-screen invisible"
+            >
+                <div className="bg-white p-5 rounded-lg">
+                    <h1 className="text-center font-bold text-3xl uppercase">Thêm Người dùng</h1>
+                    <form 
+                        onSubmit={e => {handleAdd(e);}} 
+                        className="grid grid-cols-2 gap-5 justify-center mt-5"
+                    >
+                        <div className="relative z-0 w-80 group mx-auto">
+                            <input 
+                                type="text" 
+                                name="displayName" 
+                                id="displayName" 
+                                className="block py-2.5 px-0 w-full 
+                                    text-sm text-gray-900 
+                                    bg-transparent 
+                                    border-0 border-b-2 border-gray-300 
+                                    appearance-none 
+                                    focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+                                placeholder=" " 
+                                required 
+                            />
+                            <label 
+                                htmlFor="displayName" 
+                                className="peer-focus:font-medium 
+                                    absolute text-sm text-gray-500 
+                                    duration-300 transform -translate-y-6 scale-75 
+                                    top-3 -z-10 origin-[0] 
+                                    peer-focus:start-0 rtl:peer-focus:translate-x-1/4 
+                                    rtl:peer-focus:left-auto peer-focus:text-blue-600 
+                                    peer-placeholder-shown:scale-100 
+                                    peer-placeholder-shown:translate-y-0 
+                                    peer-focus:scale-75 
+                                    peer-focus:-translate-y-6"
+                            >
+                                Tên hiển thị
+                            </label>
+                        </div>
+                        <div className="relative z-0 w-80 group mx-auto">
+                            <input 
+                                type="text" 
+                                name="fullName" 
+                                id="fullName" 
+                                className="block py-2.5 px-0 w-full 
+                                    text-sm text-gray-900 
+                                    bg-transparent 
+                                    border-0 border-b-2 border-gray-300 
+                                    appearance-none 
+                                    focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+                                placeholder=" " 
+                                required 
+                            />
+                            <label 
+                                htmlFor="password" 
+                                className="peer-focus:font-medium 
+                                    absolute text-sm text-gray-500 
+                                    duration-300 transform -translate-y-6 scale-75 
+                                    top-3 -z-10 origin-[0] 
+                                    peer-focus:start-0 rtl:peer-focus:translate-x-1/4 
+                                    rtl:peer-focus:left-auto peer-focus:text-blue-600 
+                                    peer-placeholder-shown:scale-100 
+                                    peer-placeholder-shown:translate-y-0 
+                                    peer-focus:scale-75 
+                                    peer-focus:-translate-y-6"
+                            >
+                                Họ và tên
+                            </label>
+                        </div>
+                        <div className="relative z-0 w-full group mx-auto col-span-2">
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                className="block py-2.5 px-0 w-full 
+                                    text-sm text-gray-900 
+                                    bg-transparent 
+                                    border-0 border-b-2 border-gray-300 
+                                    appearance-none 
+                                    focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+                                placeholder=" " 
+                                required 
+                            />
+                            <label 
+                                htmlFor="email" 
+                                className="peer-focus:font-medium 
+                                    absolute text-sm text-gray-500 
+                                    duration-300 transform -translate-y-6 scale-75 
+                                    top-3 -z-10 origin-[0] 
+                                    peer-focus:start-0 rtl:peer-focus:translate-x-1/4 
+                                    rtl:peer-focus:left-auto peer-focus:text-blue-600 
+                                    peer-placeholder-shown:scale-100 
+                                    peer-placeholder-shown:translate-y-0 
+                                    peer-focus:scale-75 
+                                    peer-focus:-translate-y-6"
+                            >
+                                Email
+                            </label>
+                        </div>
+                        <div className="col-span-2 mx-auto mt-5">
+                            <button 
+                                type="reset"
+                                className="mx-2 mb-5 py-2 px-5 rounded-lg
+                                    text-white col-span-2
+                                    bg-gray-800 hover:bg-gray-00"
+                                onClick={toogleModal}
+                            >
+                                Hủy
+                            </button>
+                            <button 
+                                type="submit"
+                                className="mx-2 mb-5 py-2 px-5 rounded-lg
+                                    text-white col-span-2
+                                    bg-blue-800 hover:bg-blue-500">
+                                Thêm
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </>
     )

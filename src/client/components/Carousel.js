@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import img1 from "../../images/img.webp";
+import img2 from "../../images/logo.webp";
 
 function Carousel(props){
     const [slides, setSlides] = useState();
@@ -47,7 +48,7 @@ function Carousel(props){
                 <img src={img1} className="h-96" alt="..." />
             </div>
             <div className={`${props.id} hidden`}>
-                <img src={img1} className="h-96" alt="..." />
+                <img src={img2} className="h-96" alt="..." />
             </div>
             
             <button id="prev" onClick={() => (slides !== undefined)?plusSlides(-1):console.log("vt.edu.vn")} 

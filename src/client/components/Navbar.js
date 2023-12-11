@@ -1,15 +1,16 @@
 import { FaBars, FaHome, FaPhoneAlt, FaFacebook, FaEnvelope, FaYoutube, FaShoppingCart } from "react-icons/fa";
+import logo from "../../images/logo.webp"
 
 var testDt =[{
     name: "Giới thiệu",
     link: "",
     children:[]
 },{
-    name: "Liên hệ",
+    name: "Danh mục",
     link: "",
     children:[]
 },{
-    name: "Giới thiệu",
+    name: "Liên hệ",
     link: "",
     children:[]
 }]
@@ -32,7 +33,7 @@ function Navbar(){
         <div className="bg-[#ededed]">
             <div className="container mx-auto flex items-center justify-between p-5">
                 <a href="/" className="flex items-center">
-                    <img className="max-lg:h-12 lg:h-20" src="https://vhu.edu.vn/Resources/Images/SubDomain/HomePage/Logo/logo-footer.png" alt=""/>
+                    <img className="max-lg:h-12 lg:h-20" src={logo} alt=""/>
                     <p className="pl-5 font-bold text-2xl">LAPTOP VHU</p>
                 </a>
                 <div className="flex items-center">
